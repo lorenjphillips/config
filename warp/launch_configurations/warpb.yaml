@@ -1,0 +1,24 @@
+---
+name: Backend Dev
+windows:
+  - tabs:
+      - title: Backend
+        layout:
+          split_direction: horizontal
+          panes:
+            - split_direction: vertical
+              panes:
+                - cwd: /Users/lorenphillips/Development/backend
+                - cwd: /Users/lorenphillips/Development/backend
+                - cwd: /Users/lorenphillips/Development/backend
+            - split_direction: vertical
+              panes:
+                - cwd: /Users/lorenphillips/Development/backend
+                  commands:
+                    - exec: csp
+                - cwd: /Users/lorenphillips/Development/backend
+                  commands:
+                    - exec: csp
+                - cwd: /Users/lorenphillips/Development/backend
+                  commands:
+                    - exec: csp

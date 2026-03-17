@@ -1,0 +1,24 @@
+---
+name: Frontend Dev
+windows:
+  - tabs:
+      - title: Frontend
+        layout:
+          split_direction: horizontal
+          panes:
+            - split_direction: vertical
+              panes:
+                - cwd: /Users/lorenphillips/Development/frontend
+                - cwd: /Users/lorenphillips/Development/frontend
+                - cwd: /Users/lorenphillips/Development/frontend
+            - split_direction: vertical
+              panes:
+                - cwd: /Users/lorenphillips/Development/frontend
+                  commands:
+                    - exec: csp
+                - cwd: /Users/lorenphillips/Development/frontend
+                  commands:
+                    - exec: csp
+                - cwd: /Users/lorenphillips/Development/frontend
+                  commands:
+                    - exec: csp
