@@ -158,19 +158,23 @@ alias backlog='aws ecr get-login-password --region us-east-2 | docker login --us
 alias db-cpu='(cd /Users/lorenphillips/Development/backend && source load_secrets.sh && aws cloudwatch get-metric-statistics --namespace AWS/RDS --metric-name CPUUtilization --dimensions Name=DBInstanceIdentifier,Value=coval-rds-database --start-time $(date -u -v-1H +%Y-%m-%dT%H:%M:%S) --end-time $(date -u +%Y-%m-%dT%H:%M:%S) --period 300 --statistics Average Maximum --region us-east-2)'
 
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/opt/homebrew/Caskroom/miniconda/base/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/opt/homebrew/Caskroom/miniconda/base/etc/profile.d/conda.sh" ]; then
-        . "/opt/homebrew/Caskroom/miniconda/base/etc/profile.d/conda.sh"
+# >>> conda initialize (lazy-loaded for fast shell startup) >>>
+# First call to `conda` replaces this stub with the real init from `conda shell.zsh hook`.
+conda() {
+    unfunction conda
+    __conda_setup="$('/opt/homebrew/Caskroom/miniconda/base/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+    if [ $? -eq 0 ]; then
+        eval "$__conda_setup"
     else
-        export PATH="/opt/homebrew/Caskroom/miniconda/base/bin:$PATH"
+        if [ -f "/opt/homebrew/Caskroom/miniconda/base/etc/profile.d/conda.sh" ]; then
+            . "/opt/homebrew/Caskroom/miniconda/base/etc/profile.d/conda.sh"
+        else
+            export PATH="/opt/homebrew/Caskroom/miniconda/base/bin:$PATH"
+        fi
     fi
-fi
-unset __conda_setup
+    unset __conda_setup
+    conda "$@"
+}
 # <<< conda initialize <<<
 
 
@@ -251,8 +255,14 @@ alias ddlogs='docker compose logs -f run_setup_worker simulation_worker simmetri
 # Added by Antigravity
 export PATH="/Users/lorenphillips/.antigravity/antigravity/bin:$PATH"
 
-# OpenClaw Completion
-source <(openclaw completion --shell zsh)
+# OpenClaw Completion (cached — regenerated only when the binary changes)
+OPENCLAW_COMP=~/.cache/openclaw-completion.zsh
+if [[ ! -f $OPENCLAW_COMP || $(command -v openclaw) -nt $OPENCLAW_COMP ]]; then
+    mkdir -p ~/.cache
+    openclaw completion --shell zsh > $OPENCLAW_COMP
+fi
+source $OPENCLAW_COMP
+unset OPENCLAW_COMP
 
 # LoBo - Open OpenClaw dashboard on Mac Mini
 lobo() {
