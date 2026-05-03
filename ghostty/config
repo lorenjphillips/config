@@ -1,0 +1,33 @@
+# Ported from Warp Dark theme
+font-size = 12
+background-opacity = 0.77
+cursor-style = block
+cursor-style-blink = true
+
+# Warp Dark theme colors
+background = 01061a
+foreground = ffffff
+cursor-color = ffffff
+selection-background = 2d3f6c
+selection-foreground = ffffff
+
+# ANSI palette (Warp Dark)
+palette = 0=#000000
+palette = 1=#ff6e6e
+palette = 2=#69ff47
+palette = 3=#fffac2
+palette = 4=#d6acff
+palette = 5=#ff92df
+palette = 6=#a4ffff
+palette = 7=#ffffff
+palette = 8=#686868
+palette = 9=#ff6e6e
+palette = 10=#69ff47
+palette = 11=#fffac2
+palette = 12=#d6acff
+palette = 13=#ff92df
+palette = 14=#a4ffff
+palette = 15=#ffffff
+
+# Global hotkey — open new window from any app, any space
+keybind = global:ctrl+alt+w=new_window
