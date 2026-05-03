@@ -1,6 +1,6 @@
--- Global hotkey (ctrl+shift+w): open a new Warp window wherever the cursor is
+-- Global hotkey (ctrl+option+w): open a new Warp window wherever the cursor is
 -- Requires Warp to be set to "All Desktops" in the Dock (right-click → Options → All Desktops)
-hs.hotkey.bind({"ctrl", "shift"}, "w", function()
+hs.hotkey.bind({"ctrl", "alt"}, "w", function()
   local warp = hs.application.find("dev.warp.Warp-Stable")
   if warp then
     hs.osascript.applescript([[
